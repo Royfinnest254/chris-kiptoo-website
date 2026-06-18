@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+    <meta name="description" content="Official website of Dr. Chris Kiptoo, CBS, Principal Secretary of the National Treasury and Economic Planning of the Republic of Kenya.">
+    
+    <!-- Geographic Metadata -->
+    <meta name="geo.region" content="KE">
+    <meta name="geo.placename" content="Nairobi">
+    <meta name="geo.position" content="-1.2884;36.8233">
+    <meta name="ICBM" content="-1.2884, 36.8233">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chriskiptoo.org/index.html">
+    <meta property="og:title" content="Dr. Chris Kiptoo, CBS | Principal Secretary, National Treasury of Kenya">
+    <meta property="og:description" content="Official website of Dr. Chris Kiptoo, CBS, Principal Secretary of the National Treasury and Economic Planning of the Republic of Kenya.">
+    <meta property="og:image" content="https://chriskiptoo.org/assets/images/logo-ck.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://chriskiptoo.org/index.html">
+    <meta name="twitter:title" content="Dr. Chris Kiptoo, CBS | Principal Secretary, National Treasury of Kenya">
+    <meta name="twitter:description" content="Official website of Dr. Chris Kiptoo, CBS, Principal Secretary of the National Treasury and Economic Planning of the Republic of Kenya.">
+    <meta name="twitter:image" content="https://chriskiptoo.org/assets/images/logo-ck.png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Chris Kiptoo, CBS | Principal Secretary, National Treasury of Kenya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .executive-shadow {
+            box-shadow: 0 10px 40px -10px rgba(15, 58, 32, 0.08);
+        }
+        .stewardship-accent {
+            border-left: 4px solid #72fcb6;
+        }
+        .rule-accent {
+            width: 48px;
+            height: 3px;
+            background-color: #72fcb6;
+        }
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .quote-slide {
+            display: none;
+        }
+        .quote-slide.active {
+            display: block;
+            animation: slideUp 0.8s ease-out;
+        }
+        .hero-img-slide {
+            transition: opacity 1.2s ease-in-out;
+        }
+        .hero-img-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        /* =========================================================
+           GLOBAL TRANSITIONS & ANIMATIONS
+        ========================================================= */
+
+        /* Page fade-in on load */
+        body {
+            animation: ck-page-fade 0.55s ease both;
+        }
+        @keyframes ck-page-fade {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Nav link underline slide */
+        nav a {
+            position: relative;
+        }
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #72fcb6;
+            transition: width 0.25s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Smooth all anchor and button transitions */
+        a, button {
+            transition: color 0.2s ease, background-color 0.2s ease,
+                        border-color 0.2s ease, opacity 0.2s ease,
+                        transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        a:active, button:active {
+            transform: scale(0.97);
+        }
+
+        /* Card hover lift */
+        .gallery-card-item,
+        [class*="executive-shadow"],
+        .hover\:shadow-lg {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .gallery-card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(10,43,24,0.15);
+        }
+
+        /* Section fade-in on scroll — only for explicitly marked elements */
+        .ck-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .ck-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gallery card stagger — only applied when JS adds class */
+        .ck-stagger-item {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.45s ease, transform 0.45s ease;
+        }
+        .ck-stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Dropdown smooth open */
+        .group:hover > div[class*="top-full"] {
+            animation: ck-dropdown 0.18s ease both;
+        }
+        @keyframes ck-dropdown {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero text entrance */
+        .ck-hero-text {
+            animation: ck-hero-in 0.8s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        @keyframes ck-hero-in {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Teal accent bar pulse on hover */
+        .section-rule, [class*="h-\[3px\]"], .editorial-rule {
+            transition: width 0.3s ease;
+        }
+
+        /* Custom Architectural Grid & Premium Accents */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+        }
+        .border-gold-accent {
+            border-color: #C09E5A;
+        }
+        .text-gold-accent {
+            color: #C09E5A;
+        }
+</style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "border-muted": "#E0EAE4",
+                        "primary-fixed": "#bfeec8",
+                        "surface-tint": "#3d6749",
+                        "surface-container-highest": "#d5e3fd",
+                        "tertiary-container": "#003b23",
+                        "on-tertiary-fixed-variant": "#005232",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#00210d",
+                        "surface-container": "#e6eeff",
+                        "primary": "#00230f",
+                        "surface-container-high": "#dde9ff",
+                        "on-secondary-container": "#785d1f",
+                        "on-surface": "#0d1c2f",
+                        "on-primary-container": "#79a583",
+                        "inverse-surface": "#233144",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a4d1ad",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ebf1ff",
+                        "secondary-container": "#fed88e",
+                        "surface-variant": "#d5e3fd",
+                        "on-tertiary-container": "#03b173",
+                        "primary-container": "#0f3a20",
+                        "statesman-slate": "#334155",
+                        "tertiary-fixed-dim": "#53de9c",
+                        "outline-variant": "#c1c9bf",
+                        "background": "#f8f9ff",
+                        "on-background": "#0d1c2f",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed-variant": "#cbd5e1",
+                        "outline": "#727971",
+                        "architectural-white": "#F8F9FA",
+                        "forest-deep": "#0A2B18",
+                        "inverse-primary": "#a4d1ad",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#72fcb6",
+                        "surface-dim": "#ccdbf4",
+                        "secondary-fixed": "#ffdea2",
+                        "on-surface-variant": "#414942",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#5c4305",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#765a1d",
+                        "on-tertiary-fixed": "#002112",
+                        "on-error": "#ffffff",
+                        "tertiary": "#002313",
+                        "secondary-fixed-dim": "#e6c27a",
+                        "on-secondary-fixed": "#261900",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-padding": "6rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "container-max": "1280px",
+                        "gutter": "2rem",
+                        "margin-mobile": "1.5rem",
+                        "stack-lg": "4rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["EB Garamond"],
+                        "label-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["EB Garamond"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["EB Garamond"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["EB Garamond"],
+                        "headline-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+    
+
+<link rel="icon" type="image/png" href="assets/images/logo-ck.png" />
+<link rel="shortcut icon" type="image/png" href="assets/images/logo-ck.png" />
+</head>
+<body class="bg-background text-on-surface selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopNavBar -->
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container-high sticky top-0 z-50 border-b border-border-muted w-full shadow-sm">
+    <div class="max-w-container-max mx-auto px-gutter flex flex-col w-full">
+        <!-- Row 1: Logo & Actions -->
+        <div class="flex justify-between items-center py-4 border-b border-border-muted/50">
+            <!-- Branding Logo Block -->
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
+                <img src="assets/images/logo-ck.png" alt="CK Logo" class="h-11 w-auto">
+                <div class="flex flex-col">
+                    <span class="font-headline-sm text-lg md:text-xl font-bold tracking-tight text-primary uppercase leading-tight">DR. CHRIS KIPTOO, CBS</span>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-statesman-slate opacity-80 font-semibold mt-0.5">Principal Secretary, The National Treasury</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <!-- Search Button -->
+                <div class="p-2 hover:bg-surface-container-low transition-all cursor-pointer">
+                    <span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 hover:bg-surface-container-low transition-all focus:outline-none" aria-label="Toggle Navigation">
+                    <span class="material-symbols-outlined text-primary font-bold" data-icon="menu">menu</span>
+                </button>
+                <!-- Desktop Social Icons -->
+                <div class="hidden md:flex items-center gap-4 text-on-surface-variant pl-2 border-l border-border-muted/50">
+                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://x.com/Kiptoock" target="_blank" rel="noopener" title="X (Twitter)">
+                        <img src="assets/images/social-x.png" alt="X" class="w-4 h-4 object-contain">
+                    </a>
+                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://ke.linkedin.com/in/drchriskiptoo" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="assets/images/social-linkedin.png" alt="LinkedIn" class="w-4 h-4 object-contain">
+                    </a>
+                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://www.facebook.com/DrChrisKiptoo/" target="_blank" rel="noopener" title="Facebook">
+                        <img src="assets/images/social-facebook.png" alt="Facebook" class="w-4 h-4 object-contain">
+                    </a>
+                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://www.instagram.com/drchriskiptoo/" target="_blank" rel="noopener" title="Instagram">
+                        <img src="assets/images/social-instagram.png" alt="Instagram" class="w-4 h-4 object-contain">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <nav id="site-navigation" class="hidden md:flex flex-col md:flex-row md:items-center gap-4 md:gap-8 overflow-visible py-3">
+    <!-- Home -->
+    <a class="font-label-lg text-label-lg uppercase text-primary border-b-2 border-primary pb-1" href="index.html">HOME</a>
+    
+    <!-- About Dropdown -->
+    <div class="relative group py-1">
+        <a href="about.html" class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1 flex items-center gap-1 focus:outline-none" style="text-decoration:none;">
+            ABOUT <span class="text-[10px]">&#9662;</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 w-48 hidden group-hover:block z-50">
+            <div class="bg-white border border-border-muted shadow-lg py-2">
+                <a href="about.html" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Biography</a>
+                <a href="about.html#education" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Education &amp; Accreditations</a>
+            </div>
+        </div>
+    </div>
+    
+    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="portfolios.html">PORTFOLIOS</a>
+    
+    <!-- Conservation Dropdown -->
+    <div class="relative group py-1">
+        <a href="kicp.html" class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1 flex items-center gap-1 focus:outline-none" style="text-decoration:none;">
+            CONSERVATION <span class="text-[10px]">&#9662;</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 w-56 hidden group-hover:block z-50">
+            <div class="bg-white border border-border-muted shadow-lg py-2">
+                <a href="kicp.html" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Kaptagat Programme (KICP)</a>
+                <a href="environment.html" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Environmental Action</a>
+            </div>
+        </div>
+    </div>
+    
+    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="gallery.html">MEDIA</a>
+    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="contact.html">CONTACT</a>
+</nav>
+    </div>
+</header>
+<main>
+<!-- Section 1: Hero Section -->
+<section class="relative min-h-[921px] flex flex-col justify-center overflow-hidden bg-[#1E4A32]">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-gutter items-center h-full py-12 relative z-10">
+<div class="md:col-span-6 z-10 space-y-stack-lg">
+<div class="space-y-stack-sm">
+<div class="rule-accent"></div>
+<span class="font-label-lg text-label-lg text-tertiary-fixed tracking-widest uppercase block">Office of the Principal Secretary</span>
+</div>
+<div class="min-h-[200px]">
+<div id="quote-container">
+<h1 class="quote-slide active font-display-lg text-display-lg text-white leading-tight">
+                                "Sustaining fiscal discipline and restoring our environment are the twin anchors of our nation’s future."
+                            </h1>
+<h1 class="quote-slide font-display-lg text-display-lg text-white leading-tight">
+                                "Our economic policy is a commitment to the next generation, prioritizing long-term stability over short-term gain."
+                            </h1>
+<h1 class="quote-slide font-display-lg text-display-lg text-white leading-tight">
+                                "Integrity and innovation in the National Treasury drive the pulse of Kenya’s development."
+                            </h1>
+<h1 class="quote-slide font-display-lg text-display-lg text-white leading-tight">
+                                "Our fiscal strategy empowers counties, mobilizes local revenue, and builds a sustainable future for every Kenyan."
+                            </h1>
+<h1 class="quote-slide font-display-lg text-display-lg text-white leading-tight">
+                                "Restoring Kaptagat Forest and our national water towers is an ecological legacy we must secure today."
+                            </h1>
+</div>
+</div>
+
+</div>
+<div class="md:col-span-6 relative h-[600px] md:h-[800px]">
+<div class="absolute inset-0 overflow-hidden">
+    <img id="hero-img-1" src="assets/media/0009-dzx0oa-joxb-02.jpg" alt="Dr. Chris Kiptoo Official Portrait" class="hero-img-slide active absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-100">
+    <img id="hero-img-2" src="assets/media/0005-dzfwvlsdblz-01.jpg" alt="Dr. Chris Kiptoo Government Consultation" class="hero-img-slide absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0">
+    <img id="hero-img-3" src="assets/media/0006-dzc_nvediqu-16.jpg" alt="Dr. Chris Kiptoo Leadership Meeting" class="hero-img-slide absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0">
+    <img id="hero-img-4" src="assets/media/0012-dzuljdddkbd-05.jpg" alt="Dr. Chris Kiptoo Seated at Desk" class="hero-img-slide absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0">
+    <img id="hero-img-5" src="assets/media/0014-dzqc0tydkjg-01.jpg" alt="Dr. Chris Kiptoo Public Address" class="hero-img-slide absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0">
+    <!-- Left fade: photo bleeds into background -->  
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, #1E4A32 0%, #1E4A32 8%, transparent 55%);"></div>
+    <!-- Top vignette -->
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, #1E4A32 0%, transparent 25%, transparent 75%, #1E4A32 100%);"></div>
+</div>
+</div>
+</div>
+<!-- Background WebGL placeholder for atmosphere -->
+<div class="absolute top-0 right-0 w-1/2 h-full -z-0 opacity-10">
+
+</div>
+</section>
+<!-- Section 2: Leadership Profile -->
+<section class="bg-background py-section-padding">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-lg">
+<div class="md:col-span-5 relative group">
+<div class="bg-primary-container p-2 inline-block">
+<img alt="Dr. Kiptoo in Official Capacity" class="w-full aspect-[4/5] object-cover brightness-90 transition-all duration-500" data-alt="A close-up action shot of a government executive in a high-level meeting, gesturing thoughtfully while reviewing a financial document. The setting is a bright, modern office with large glass windows and subtle architectural lines. The lighting is high-key and prestigious, emphasizing clarity and transparency. The colors are muted slates and crisp whites with a single deep green accent in his tie, following the brand's analytical and rigorous persona." src="assets/media/0006-dzc_nvediqu-16.jpg"/>
+</div>
+<div class="absolute -right-8 top-1/2 -translate-y-1/2 bg-architectural-white p-8 executive-shadow max-w-[200px] border border-border-muted hidden lg:block">
+<p class="font-headline-sm text-headline-sm text-primary italic">"Stewardship is a sacred trust."</p>
+</div>
+</div>
+<div class="md:col-span-7 flex flex-col justify-center space-y-stack-md">
+<div class="rule-accent"></div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Executive Stewardship</h2>
+<div class="stewardship-accent pl-8 py-2">
+<p class="font-body-lg text-body-lg text-statesman-slate leading-relaxed">
+                                Dr. Chris Kiptoo, CBS, is the Principal Secretary of the National Treasury. With over two decades of distinguished service in the public and private sectors, he has been a pivotal architect of Kenya's economic resilience and environmental restoration strategies.
+                            </p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            His leadership spans across critical departments including Trade, Environment, and Forestry, where he pioneered the Kaptagat Integrated Conservation Programme. Dr. Kiptoo holds a PhD in Economics and has consistently championed data-driven policy making to ensure the fiscal health and sustainable growth of the Republic of Kenya.
+                        </p>
+<div class="pt-8 grid grid-cols-2 gap-stack-md">
+<div>
+<div class="text-secondary font-headline-md text-headline-md">20+</div>
+<div class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant">Years Public Service</div>
+</div>
+<div>
+<div class="text-secondary font-headline-md text-headline-md">PhD</div>
+<div class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant">Economics Specialist</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Portfolio Grid -->
+<section class="bg-architectural-white py-section-padding border-y border-border-muted">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col items-center text-center mb-20 space-y-stack-sm">
+<span class="font-label-lg text-label-lg text-secondary uppercase tracking-widest">Spheres of Influence</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Key Ministerial Portfolios</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- National Treasury -->
+<div class="bg-white p-12 border border-border-muted hover:border-tertiary-fixed transition-all group executive-shadow cursor-pointer relative overflow-hidden">
+<div class="mb-8 h-16 flex items-center">
+<img src="assets/media/portfolio-treasury.png" alt="National Treasury Logo" class="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">National Treasury</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Directing Kenya’s macro-economic policies, fiscal management, and revenue mobilization for sustainable national development.</p>
+<a class="font-label-lg text-label-lg text-primary flex items-center gap-2 group-hover:gap-4 transition-all" href="portfolios.html#treasury">
+                            Explore Portfolio <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</a>
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-container-low -mr-12 -mt-12 rounded-full opacity-0 group-hover:opacity-100 transition-all"></div>
+</div>
+<!-- State Department of Trade -->
+<div class="bg-white p-12 border border-border-muted hover:border-tertiary-fixed transition-all group executive-shadow cursor-pointer">
+<div class="mb-8 h-16 flex items-center">
+<img src="assets/media/portfolio-trade.jfif" alt="Ministry of Trade Logo" class="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Trade &amp; Industrialization</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Spearheading trade negotiations, expanding market access, and fostering a competitive environment for private sector growth.</p>
+<a class="font-label-lg text-label-lg text-primary flex items-center gap-2 group-hover:gap-4 transition-all" href="portfolios.html#trade">
+                            Explore Portfolio <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<!-- Environment & Forestry -->
+<div class="bg-white p-12 border border-border-muted hover:border-tertiary-fixed transition-all group executive-shadow cursor-pointer">
+<div class="mb-8 h-16 flex items-center">
+<img src="assets/media/portfolio-environment.png" alt="Ministry of Environment Logo" class="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Environment &amp; Forestry</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Leading national climate action initiatives, reforestation programs, and the conservation of vital water towers.</p>
+<a class="font-label-lg text-label-lg text-primary flex items-center gap-2 group-hover:gap-4 transition-all" href="portfolios.html#environment">
+                            Explore Portfolio <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 4: Featured Interview Video -->
+<section class="bg-forest-deep py-20 relative overflow-hidden">
+    <!-- Subtle corner accent -->
+    <div class="absolute top-0 left-0 w-48 h-48 border-l-[6px] border-t-[6px] border-tertiary-fixed opacity-20"></div>
+    <div class="absolute bottom-0 right-0 w-48 h-48 border-r-[6px] border-b-[6px] border-tertiary-fixed opacity-20"></div>
+
+    <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-12">
+            <div class="rule-accent mx-auto mb-6"></div>
+            <span class="font-label-lg text-label-lg text-tertiary-fixed uppercase tracking-widest block mb-3">Featured Interview</span>
+            <h2 class="font-headline-lg text-headline-lg text-white leading-tight max-w-2xl">
+                PS Kiptoo on Treasury's Journey
+            </h2>
+            <p class="font-body-md text-body-md text-white/60 mt-4 max-w-xl leading-relaxed">
+                Dr. Chris Kiptoo speaks candidly on fiscal discipline, public debt management, and the National Treasury's strategic direction for Kenya's economic future.
+            </p>
+        </div>
+
+        <!-- Video Embed -->
+        <div class="max-w-4xl mx-auto">
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+                <iframe
+                    id="treasury-interview-video"
+                    class="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/4pkg6SiRZjo?rel=0&modestbranding=1&color=white"
+                    title="PS Kiptoo on Treasury's Journey — Official Interview"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                ></iframe>
+            </div>
+            <!-- Caption Bar -->
+            <div class="flex items-center justify-between border-t border-white/10 pt-5 mt-5">
+                <span class="font-label-sm text-label-sm text-white/40 uppercase tracking-widest">National Treasury — Official Interview</span>
+                <a href="https://www.youtube.com/watch?v=4pkg6SiRZjo" target="_blank" rel="noopener" class="font-label-sm text-label-sm text-tertiary-fixed hover:text-white transition-colors flex items-center gap-2 uppercase tracking-wider">
+                    Watch on YouTube <span class="material-symbols-outlined text-[16px]" data-icon="open_in_new">open_in_new</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Conservation Highlight -->
+<section class="py-20 bg-white border-t border-b border-border-muted">
+    <div class="max-w-container-max mx-auto px-gutter w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Text / Logo Column -->
+            <div class="lg:col-span-7 space-y-6">
+                <!-- Clickable Logo referencing external link -->
+                <a href="https://kaptagat-icp.org" target="_blank" rel="noopener" class="inline-block hover:opacity-90 transition-opacity">
+                    <img src="assets/images/kicp-logo.png" alt="KICP Logo" class="h-28 w-auto">
+                </a>
+                <div class="space-y-4">
+                    <span class="inline-block bg-primary-fixed text-primary px-3 py-1 text-xs uppercase tracking-wider font-semibold">Conservation Initiative</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary leading-tight">Kaptagat Integrated Conservation Programme (KICP)</h2>
+                    <p class="font-body-lg text-on-surface-variant leading-relaxed max-w-xl">
+                        A flagship initiative founded by Dr. Kiptoo to restore the Cherang'any and Elgeyo Hills ecosystems. Through community partnership and institutional oversight, we are reclaiming our water towers for a climate-resilient future.
+                    </p>
+                    <a href="kicp.html" class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary uppercase tracking-wider hover:gap-4 transition-all">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Right Image Column (Boxed Photo Story) -->
+            <div class="lg:col-span-5">
+                <div class="border border-border-muted p-6 bg-white shadow-sm flex flex-col space-y-4">
+                    <img alt="Dr. Chris Kiptoo KICP Action Story" class="w-full h-[320px] object-cover" src="assets/media/0019-dzkjakndal5-01.jpg"/>
+                    <div class="border-t border-border-muted pt-4 space-y-2">
+                        <p class="font-label-sm text-xs text-secondary uppercase tracking-wider">The KICP Story</p>
+                        <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                            Initiated as a local response to environmental degradation in the Kaptagat water tower, KICP has grown from community tree planting days into an internationally recognized integrated conservation model. Reconciling community livelihood programs with active forest protection, the programme bridges where we started—a fragile water tower in need of immediate rehabilitation—and where we are going: a climate-resilient ecosystem protected for generations to come.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="bg-forest-deep dark:bg-primary-container border-t border-primary-container dark:border-primary text-on-primary">
+    <div class="max-w-container-max mx-auto px-gutter py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Profile & Socials -->
+        <div class="space-y-6">
+            <h4 class="font-display-md text-xl text-white uppercase tracking-wider font-semibold">Dr. Chris Kiptoo, CBS</h4>
+            <p class="font-body-md text-sm text-on-primary-fixed-variant opacity-80 leading-relaxed">
+                Principal Secretary, The National Treasury & Economic Planning. Committed to sustainable fiscal development and environmental stewardship in Kenya.
+            </p>
+            <div class="flex gap-4">
+                <!-- X (Twitter) -->
+                <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-tertiary-fixed transition-all group" href="https://x.com/Kiptoock" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                    <svg class="w-5 h-5 fill-current text-on-primary-fixed-variant group-hover:text-primary" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <!-- Treasury Website -->
+                <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-tertiary-fixed transition-all group" href="https://www.treasury.go.ke" target="_blank" rel="noopener" aria-label="The National Treasury website">
+                    <span class="material-symbols-outlined text-[20px] text-on-primary-fixed-variant group-hover:text-primary" data-icon="public">public</span>
+                </a>
+                <!-- Contact Email -->
+                <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-tertiary-fixed transition-all group" href="contact.html" aria-label="Send Correspondence">
+                    <span class="material-symbols-outlined text-[20px] text-on-primary-fixed-variant group-hover:text-primary" data-icon="mail">mail</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Strategic Partners -->
+        <div class="space-y-6">
+            <h4 class="font-label-lg text-sm text-tertiary-fixed uppercase tracking-wider font-semibold">Strategic Partners</h4>
+            <ul class="space-y-3 font-body-md text-sm">
+                <li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:underline decoration-tertiary-fixed transition-all" href="https://www.kra.go.ke/" target="_blank" rel="noopener">Kenya Revenue Authority</a></li>
+                <li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:underline decoration-tertiary-fixed transition-all" href="https://www.cbk.go.ke/" target="_blank" rel="noopener">Central Bank of Kenya</a></li>
+                <li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:underline decoration-tertiary-fixed transition-all" href="kicp.html">Kaptagat Programme (KICP)</a></li>
+            </ul>
+        </div>
+
+        <!-- Portfolios & Action -->
+        <div class="space-y-6">
+            <h4 class="font-label-lg text-sm text-tertiary-fixed uppercase tracking-wider font-semibold">Key Portfolios</h4>
+            <ul class="space-y-3 font-body-md text-sm">
+                <li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:underline decoration-tertiary-fixed transition-all" href="portfolios.html#treasury">National Treasury</a></li>
+                <li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:underline decoration-tertiary-fixed transition-all" href="environment.html">Environmental Action</a></li>
+                <li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:underline decoration-tertiary-fixed transition-all" href="about.html">Public Service Record</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="space-y-6 font-body-md text-sm text-on-primary-fixed-variant">
+            <h4 class="font-label-lg text-sm text-tertiary-fixed uppercase tracking-wider font-semibold">Official Contact</h4>
+            <p class="leading-relaxed opacity-80">
+                Treasury Building, Harambee Avenue<br/>
+                P.O. Box 30007-00100<br/>
+                Nairobi, Kenya
+            </p>
+            <p class="opacity-80">
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="max-w-container-max mx-auto px-gutter py-8 border-t border-white/10 text-center">
+        <p class="font-label-sm text-xs text-on-primary-fixed-variant opacity-60 uppercase tracking-widest">
+            © 2026 DR. CHRIS KIPTOO, CBS. ALL RIGHTS RESERVED.
+        </p>
+    </div>
+</footer>
+<script>
+        // Hero Quote & Image Slideshow
+        const quotes = document.querySelectorAll('.quote-slide');
+        const images = document.querySelectorAll('.hero-img-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            quotes[currentSlide].classList.remove('active');
+            images[currentSlide].classList.remove('active');
+            images[currentSlide].style.opacity = '0';
+            
+            currentSlide = (currentSlide + 1) % quotes.length;
+            
+            quotes[currentSlide].classList.add('active');
+            images[currentSlide].classList.add('active');
+            images[currentSlide].style.opacity = '1';
+        }
+
+        setInterval(nextSlide, 6000);
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('executive-shadow');
+            } else {
+                header.classList.remove('executive-shadow');
+            }
+        });
+
+        // Simple Fade In Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => observer.observe(el));
+    
+    </script>
+</body></html>

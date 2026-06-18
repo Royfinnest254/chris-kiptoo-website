@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="0; url=portfolios.html#treasury">
+    <script type="text/javascript">
+        window.location.href = "portfolios.html#treasury"
+    </script>
+    <title>Redirecting...</title>
+</head>
+<body>
+    If you are not redirected, <a href="portfolios.html#treasury">click here</a>.
+
+<script>
+/* Safe scroll reveal — never hides sections, only animates gallery cards */
+(function() {
+    /* Gallery cards stagger */
+    var cards = document.querySelectorAll('.gallery-card-item');
+    cards.forEach(function(el) { el.classList.add('ck-stagger-item'); });
+
+    var allReveal = document.querySelectorAll('.ck-reveal, .ck-stagger-item');
+
+    if ('IntersectionObserver' in window && allReveal.length) {
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry, i) {
+                if (entry.isIntersecting) {
+                    setTimeout(function() {
+                        entry.target.classList.add('visible');
+                    }, i * 60);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+        allReveal.forEach(function(el) { obs.observe(el); });
+    } else {
+        allReveal.forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    /* Nav scroll shadow */
+    window.addEventListener('scroll', function() {
+        var nav = document.querySelector('[class*="sticky"][class*="z-50"]');
+        if (!nav) return;
+        nav.style.boxShadow = window.scrollY > 10
+            ? '0 2px 20px rgba(10,43,24,0.12)'
+            : '';
+    }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
