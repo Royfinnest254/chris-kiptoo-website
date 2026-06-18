@@ -307,84 +307,38 @@
 </header>
 <main>
 <!-- Section 1: Remade KICP White Banner & Boxed Story Column -->
-<!-- TopNavBar -->
-<header class="bg-surface dark:bg-surface-container-high sticky top-0 z-50 border-b border-border-muted w-full shadow-sm">
-    <div class="max-w-container-max mx-auto px-gutter flex flex-col w-full">
-        <!-- Row 1: Logo & Actions -->
-        <div class="flex justify-between items-center py-4 border-b border-border-muted/50">
-            <!-- Branding Logo Block -->
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
-                <img src="assets/images/logo-ck.png" alt="CK Logo" class="h-11 w-auto">
-                <div class="flex flex-col">
-                    <span class="font-headline-sm text-lg md:text-xl font-bold tracking-tight text-primary uppercase leading-tight">DR. CHRIS KIPTOO, CBS</span>
-                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-statesman-slate opacity-80 font-semibold mt-0.5">Principal Secretary, The National Treasury</span>
-                </div>
+<section class="relative min-h-[500px] flex items-center bg-white py-16 z-0 border-b border-border-muted">
+<div class="relative max-w-container-max mx-auto px-gutter w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Text / Logo Column -->
+        <div class="lg:col-span-7 space-y-6">
+            <!-- Clickable Logo referencing external link -->
+            <a href="https://kaptagat-icp.org" target="_blank" rel="noopener" class="inline-block hover:opacity-90 transition-opacity">
+                <img src="assets/images/kicp-logo.png" alt="KICP Logo" class="h-28 w-auto">
             </a>
-            
-            <div class="flex items-center gap-4">
-                <!-- Search Button -->
-                <div class="p-2 hover:bg-surface-container-low transition-all cursor-pointer">
-                    <span class="material-symbols-outlined text-primary" data-icon="search">search</span>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 hover:bg-surface-container-low transition-all focus:outline-none" aria-label="Toggle Navigation">
-                    <span class="material-symbols-outlined text-primary font-bold" data-icon="menu">menu</span>
-                </button>
-                <!-- Desktop Social Icons -->
-                <div class="hidden md:flex items-center gap-4 text-on-surface-variant pl-2 border-l border-border-muted/50">
-                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://x.com/Kiptoock" target="_blank" rel="noopener" title="X (Twitter)">
-                        <img src="assets/images/social-x.png" alt="X" class="w-4 h-4 object-contain">
-                    </a>
-                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://ke.linkedin.com/in/drchriskiptoo" target="_blank" rel="noopener" title="LinkedIn">
-                        <img src="assets/images/social-linkedin.png" alt="LinkedIn" class="w-4 h-4 object-contain">
-                    </a>
-                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://www.facebook.com/DrChrisKiptoo/" target="_blank" rel="noopener" title="Facebook">
-                        <img src="assets/images/social-facebook.png" alt="Facebook" class="w-4 h-4 object-contain">
-                    </a>
-                    <a class="flex items-center hover:opacity-80 transition-opacity" href="https://www.instagram.com/drchriskiptoo/" target="_blank" rel="noopener" title="Instagram">
-                        <img src="assets/images/social-instagram.png" alt="Instagram" class="w-4 h-4 object-contain">
-                    </a>
+            <div class="space-y-4">
+                <span class="inline-block bg-primary-fixed text-primary px-3 py-1 text-xs uppercase tracking-wider font-semibold">Established 2017</span>
+                <h1 class="font-display-lg text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">Preserving the <br/><span class="italic text-secondary">Kaptagat Legacy</span></h1>
+                <p class="font-body-md text-on-surface-variant border-l-2 border-primary pl-4 text-sm md:text-base max-w-xl leading-relaxed">
+                    A grassroots transformation model reconciling ecological restoration with sustainable community livelihoods in the Cherang'any-Elgeyo-Kaptagat Ecosystem.
+                </p>
+            </div>
+        </div>
+        <!-- Right Image Column (Boxed Photo Story) -->
+        <div class="lg:col-span-5">
+            <div class="border border-border-muted p-6 bg-white shadow-sm flex flex-col space-y-4">
+                <img alt="Dr. Chris Kiptoo KICP Action Story" class="w-full h-[320px] object-cover" src="assets/media/0019-dzkjakndal5-01.jpg"/>
+                <div class="border-t border-border-muted pt-4 space-y-2">
+                    <p class="font-label-sm text-xs text-secondary uppercase tracking-wider">The KICP Story</p>
+                    <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                        Initiated as a local response to environmental degradation in the Kaptagat water tower, KICP has grown from community tree planting days into an internationally recognized integrated conservation model. Reconciling community livelihood programs with active forest protection, the programme bridges where we started—a fragile water tower in need of immediate rehabilitation—and where we are going: a climate-resilient ecosystem protected for generations to come.
+                    </p>
                 </div>
             </div>
         </div>
-        
-        <nav id="site-navigation" class="hidden md:flex flex-col md:flex-row md:items-center gap-4 md:gap-8 overflow-visible py-3">
-    <!-- Home -->
-    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="index.html">HOME</a>
-    
-    <!-- About Dropdown -->
-    <div class="relative group py-1">
-        <a href="about.html" class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1 flex items-center gap-1 focus:outline-none" style="text-decoration:none;">
-            ABOUT <span class="text-[10px]">&#9662;</span>
-        </a>
-        <div class="absolute left-0 top-full pt-2 w-48 hidden group-hover:block z-50">
-            <div class="bg-white border border-border-muted shadow-lg py-2">
-                <a href="about.html" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Biography</a>
-                <a href="about.html#education" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Education &amp; Accreditations</a>
-            </div>
-        </div>
     </div>
-    
-    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="portfolios.html">PORTFOLIOS</a>
-    
-    <!-- Conservation Dropdown -->
-    <div class="relative group py-1">
-        <a href="kicp.html" class="font-label-lg text-label-lg uppercase text-primary border-b-2 border-primary pb-1 flex items-center gap-1 focus:outline-none" style="text-decoration:none;">
-            CONSERVATION <span class="text-[10px]">&#9662;</span>
-        </a>
-        <div class="absolute left-0 top-full pt-2 w-56 hidden group-hover:block z-50">
-            <div class="bg-white border border-border-muted shadow-lg py-2">
-                <a href="kicp.html" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Kaptagat Programme (KICP)</a>
-                <a href="environment.html" class="block px-4 py-2 text-sm text-statesman-slate hover:bg-surface-container-low hover:text-primary transition-colors">Environmental Action</a>
-            </div>
-        </div>
-    </div>
-    
-    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="gallery.html">MEDIA</a>
-    <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors pb-1" href="contact.html">CONTACT</a>
-</nav>
-    </div>
-</header>
+</div>
+</section>
 <!-- Section 2: Programme Overview -->
 <section class="py-20 bg-white border-b border-border-muted">
     <div class="max-w-5xl mx-auto px-gutter">
