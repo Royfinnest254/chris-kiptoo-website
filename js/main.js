@@ -214,4 +214,46 @@ document.addEventListener('DOMContentLoaded', () => {
             siteNavigation.classList.toggle('flex');
         });
     }
+
+    // 5. Smart Header scroll behavior
+    let lastScrollY = window.scrollY;
+    let scrollAccumulator = 0;
+    const scrollThreshold = 10; // Minimum scroll delta before action
+    const header = document.querySelector('header');
+
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const scrollDelta = currentScrollY - lastScrollY;
+
+            // Handle browser/iOS bounce effects
+            const maxScrollable = document.documentElement.scrollHeight - window.innerHeight;
+            if (currentScrollY < 0 || currentScrollY > maxScrollable) {
+                lastScrollY = currentScrollY;
+                return;
+            }
+
+            // Accumulate scroll distance in the current direction
+            if ((scrollDelta > 0 && scrollAccumulator < 0) || (scrollDelta < 0 && scrollAccumulator > 0)) {
+                scrollAccumulator = 0; // Reset accumulator if direction changes
+            }
+            scrollAccumulator += scrollDelta;
+
+            if (currentScrollY > 120) { // Only hide after scrolling past the header itself
+                if (scrollAccumulator > scrollThreshold) {
+                    // Scrolling down - hide header
+                    header.classList.add('header-hidden');
+                } else if (scrollAccumulator < -scrollThreshold) {
+                    // Scrolling up - show header
+                    header.classList.remove('header-hidden');
+                }
+            } else {
+                // Near the top - always show header
+                header.classList.remove('header-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+    }
 });
+
